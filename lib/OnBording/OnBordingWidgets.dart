@@ -37,7 +37,7 @@ class DoctorImageAndText extends StatelessWidget {
               ],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              stops: [.14, .3],
+              stops: [.27, .4],
             ),
           ),
           child: Image.asset(

@@ -11,54 +11,52 @@ class OnBording extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 30.h,
-              bottom: 30.h,
-            ),
-            child: Column(
-              children: [
-                MainIcon(),
-                SizedBox(
-                  height: 60.h,
+        child: Padding(
+          padding: EdgeInsets.all(
+            10.h,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MainIcon(),
+              // SizedBox(
+              //   height: 60.h,
+              // ),
+              DoctorImageAndText(),
+              // SizedBox(
+              //   height: 25.h,
+              // ),
+              Text(
+                textAlign: TextAlign.center,
+                "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
+                style: getRegulerTextStyle(
+                  context: context,
                 ),
-                DoctorImageAndText(),
-                SizedBox(
-                  height: 25.h,
+              ),
+              // SizedBox(
+              //   height: 25.h,
+              // ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Get Started",
+                  style: getBoldItalicTextStyle(
+                      fontSize: 25, context: context, color: Colors.white),
                 ),
-                Text(
-                  textAlign: TextAlign.center,
-                  "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
-                  style: getRegulerTextStyle(
-                    context: context,
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    MaterialTheme().lightMediumContrast().primaryColor,
                   ),
-                ),
-                SizedBox(
-                  height: 25.h,
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Get Started",
-                    style: getBoldItalicTextStyle(
-                        fontSize: 25, context: context, color: Colors.white),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                      MaterialTheme().lightMediumContrast().primaryColor,
+                  minimumSize: MaterialStateProperty.all(
+                    Size(
+                      MediaQuery.sizeOf(context).width,
+                      50,
                     ),
-                    minimumSize: MaterialStateProperty.all(
-                      Size(
-                        MediaQuery.sizeOf(context).width,
-                        50,
-                      ),
-                    ),
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

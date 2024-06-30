@@ -364,6 +364,7 @@ class MaterialTheme {
         fontFamily: FontConstants.fontFamily,
         brightness: colorScheme.brightness,
         colorScheme: colorScheme,
+        
 
         scaffoldBackgroundColor: colorScheme.background,
         canvasColor: colorScheme.surface,

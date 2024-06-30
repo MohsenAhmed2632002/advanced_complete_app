@@ -30,7 +30,8 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SvgPicture.asset(
+        child: 
+        SvgPicture.asset(
           ImageAssets.splash,
         ),
       ),
