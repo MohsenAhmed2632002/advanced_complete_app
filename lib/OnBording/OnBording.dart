@@ -1,5 +1,6 @@
 import 'package:advanced_complete_app/OnBording/OnBordingWidgets.dart';
 import 'package:advanced_complete_app/core/Font.dart';
+import 'package:advanced_complete_app/core/Routes.dart';
 import 'package:advanced_complete_app/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,7 +38,12 @@ class OnBording extends StatelessWidget {
               //   height: 25.h,
               // ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.loginRoute,
+                  );
+                },
                 child: Text(
                   "Get Started",
                   style: getBoldItalicTextStyle(
