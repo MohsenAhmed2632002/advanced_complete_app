@@ -58,7 +58,7 @@ TextStyle _getTextStyle(
 
 TextStyle getRegulerTextStyle({
   Color color = Colors.black,
-  double fontSize = Fontsize.s14,
+  double fontSize = Fontsize.s16,
   required BuildContext context,
 }) {
   return _getTextStyle(
@@ -68,9 +68,21 @@ TextStyle getRegulerTextStyle({
       context: context);
 }
 
+TextStyle getItalicTextStyle({
+  Color color = Colors.black,
+  double fontSize = Fontsize.s18,
+  required BuildContext context,
+}) {
+  return _getTextStyle(
+      color: color,
+      fontsize: fontSize,
+      fontWeight: fontWeightManager.italic,
+      context: context);
+}
+
 TextStyle getBoldItalicTextStyle({
   Color color = Colors.black,
-  double fontSize = Fontsize.s14,
+  double fontSize = Fontsize.s20,
   required BuildContext context,
 }) {
   return _getTextStyle(
@@ -81,21 +93,10 @@ TextStyle getBoldItalicTextStyle({
       context: context);
 }
 
-TextStyle getItalicTextStyle({
-  Color color = Colors.black,
-  double fontSize = Fontsize.s14,
-  required BuildContext context,
-}) {
-  return _getTextStyle(
-      color: color,
-      fontsize: fontSize,
-      fontWeight: fontWeightManager.italic,
-      context: context);
-}
 
 TextStyle getBoldTextStyle({
   Color color = Colors.black,
-  double fontSize = Fontsize.s18,
+  double fontSize = Fontsize.s20,
   required BuildContext context,
 }) {
   return _getTextStyle(

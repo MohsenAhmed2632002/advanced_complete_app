@@ -59,13 +59,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final brightness = View.of(context).platformDispatcher.platformBrightness;
-    MaterialTheme theme = MaterialTheme();
+    MaterialTheme theme = MaterialTheme(context:context);
     return ScreenUtilInit(
       designSize: Size(375, 812),
       child: MaterialApp(
-        theme: brightness == Brightness.light
-            ? theme.lightMediumContrast()
-            : theme.darkHighContrast(),
+        theme:
+            //  brightness == Brightness.light
+            // ? 
+            theme.lightMediumContrast(),
+            // :
+            // theme.darkHighContrast(),
         onGenerateRoute: RoutesGenerator.getRoutes,
         initialRoute: Routes.splashRoute,
         debugShowCheckedModeBanner: false,

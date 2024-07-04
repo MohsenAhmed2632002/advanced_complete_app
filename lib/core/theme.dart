@@ -2,7 +2,11 @@ import "package:advanced_complete_app/core/Font.dart";
 import "package:flutter/material.dart";
 
 class MaterialTheme {
-  const MaterialTheme();
+  final BuildContext context;
+
+  MaterialTheme({
+    required this.context,
+  });
 
   static MaterialScheme lightScheme() {
     return const MaterialScheme(
@@ -60,7 +64,7 @@ class MaterialTheme {
   }
 
   ThemeData light() {
-    return theme(lightScheme().toColorScheme());
+    return theme(lightScheme().toColorScheme(), context);
   }
 
   static MaterialScheme lightMediumContrastScheme() {
@@ -119,7 +123,10 @@ class MaterialTheme {
   }
 
   ThemeData lightMediumContrast() {
-    return theme(lightMediumContrastScheme().toColorScheme());
+    return theme(
+      lightMediumContrastScheme().toColorScheme(),
+      context,
+    );
   }
 
   static MaterialScheme lightHighContrastScheme() {
@@ -178,7 +185,10 @@ class MaterialTheme {
   }
 
   ThemeData lightHighContrast() {
-    return theme(lightHighContrastScheme().toColorScheme());
+    return theme(
+      lightHighContrastScheme().toColorScheme(),
+      context,
+    );
   }
 
   static MaterialScheme darkScheme() {
@@ -237,7 +247,7 @@ class MaterialTheme {
   }
 
   ThemeData dark() {
-    return theme(darkScheme().toColorScheme());
+    return theme(darkScheme().toColorScheme(), context);
   }
 
   static MaterialScheme darkMediumContrastScheme() {
@@ -296,7 +306,7 @@ class MaterialTheme {
   }
 
   ThemeData darkMediumContrast() {
-    return theme(darkMediumContrastScheme().toColorScheme());
+    return theme(darkMediumContrastScheme().toColorScheme(), context);
   }
 
   static MaterialScheme darkHighContrastScheme() {
@@ -355,17 +365,79 @@ class MaterialTheme {
   }
 
   ThemeData darkHighContrast() {
-    return theme(darkHighContrastScheme().toColorScheme());
+    return theme(
+      darkHighContrastScheme().toColorScheme(),
+      context,
+    );
   }
 
-  ThemeData theme(ColorScheme colorScheme) => ThemeData(
+  ThemeData theme(ColorScheme colorScheme, BuildContext context) => ThemeData(
         //هنا الثيم
         useMaterial3: true,
         fontFamily: FontConstants.fontFamily,
         brightness: colorScheme.brightness,
         colorScheme: colorScheme,
-        
-
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            fixedSize: MaterialStatePropertyAll(
+              Size(
+                MediaQuery.sizeOf(context).width,
+                65,
+              ),
+            ),
+            elevation: MaterialStatePropertyAll(7),
+            backgroundColor: MaterialStatePropertyAll(colorScheme.primary),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+              ),
+            ),
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          isDense: true,
+          filled: true,
+          suffixIconColor: colorScheme.primary,
+          fillColor: colorScheme.onPrimary,
+          labelStyle: getRegulerTextStyle(
+            context: context,
+            fontSize: 20,
+            color: colorScheme.primary,
+          ),
+          hintStyle: getRegulerTextStyle(
+            context: context,
+            fontSize: 12,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              15,
+            ),
+            borderSide: BorderSide(
+              color: colorScheme.secondary,
+              width: 1.3,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              15,
+            ),
+            borderSide: BorderSide(
+              color: colorScheme.primary,
+              width: 1.3,
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              15,
+            ),
+            borderSide: BorderSide(
+              color: colorScheme.error,
+              width: 1.3,
+            ),
+          ),
+        ),
         scaffoldBackgroundColor: colorScheme.background,
         canvasColor: colorScheme.surface,
       );

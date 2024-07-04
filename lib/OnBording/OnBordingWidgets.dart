@@ -2,6 +2,7 @@ import 'package:advanced_complete_app/core/Font.dart';
 import 'package:advanced_complete_app/core/image.dart';
 import 'package:advanced_complete_app/core/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MainIcon extends StatelessWidget {
@@ -26,9 +27,12 @@ class DoctorImageAndText extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(
+          fit: BoxFit.fill,
           ImageAssets.group,
         ),
         Container(
+          height: 500.h,
+          width: MediaQuery.sizeOf(context).width,
           foregroundDecoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -40,19 +44,32 @@ class DoctorImageAndText extends StatelessWidget {
               stops: [.27, .4],
             ),
           ),
-          child: Image.asset(
-            ImageAssets.doctor1,
+          child: Container(
+            height: 100.h,
+            width: MediaQuery.sizeOf(context).width,
+            child: Image.asset(
+              fit: BoxFit.contain,
+              ImageAssets.doctor1,
+            ),
           ),
         ),
         Positioned(
-          bottom: 20,
-          child: Text(
-            textAlign: TextAlign.center,
-            "Best Doctor\n Appointment App",
-            style: getBoldItalicTextStyle(
-              context: context,
-              fontSize: 40,
-              color: MaterialTheme().lightMediumContrast().primaryColor,
+          // width: MediaQuery.
+          // sizeOf(context).width,
+          bottom: 10.h,
+          left: (MediaQuery.sizeOf(context).width / 2) - 200,
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              textAlign: TextAlign.center,
+              "Best Doctor\n Appointment App",
+              style: getBoldItalicTextStyle(
+                context: context,
+                fontSize: 45,
+                color: MaterialTheme(context: context)
+                    .lightMediumContrast()
+                    .primaryColor,
+              ),
             ),
           ),
         ),

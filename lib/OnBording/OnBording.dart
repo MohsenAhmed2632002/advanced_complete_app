@@ -1,6 +1,7 @@
 import 'package:advanced_complete_app/OnBording/OnBordingWidgets.dart';
 import 'package:advanced_complete_app/core/Font.dart';
 import 'package:advanced_complete_app/core/Routes.dart';
+import 'package:advanced_complete_app/core/Shared_Widgets.dart';
 import 'package:advanced_complete_app/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +15,7 @@ class OnBording extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(
-            10.h,
+            5.h,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,7 +24,10 @@ class OnBording extends StatelessWidget {
               // SizedBox(
               //   height: 60.h,
               // ),
-              DoctorImageAndText(),
+              Container(
+                width: MediaQuery.sizeOf(context).width,
+                child: DoctorImageAndText(),
+              ),
               // SizedBox(
               //   height: 25.h,
               // ),
@@ -34,33 +38,14 @@ class OnBording extends StatelessWidget {
                   context: context,
                 ),
               ),
-              // SizedBox(
-              //   height: 25.h,
-              // ),
-              TextButton(
+              MyTextButton(
+                text: "Get Started",
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
                     Routes.loginRoute,
                   );
                 },
-                child: Text(
-                  "Get Started",
-                  style: getBoldItalicTextStyle(
-                      fontSize: 25, context: context, color: Colors.white),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    MaterialTheme().lightMediumContrast().primaryColor,
-                  ),
-                  minimumSize: MaterialStateProperty.all(
-                    Size(
-                      MediaQuery.sizeOf(context).width,
-                      50,
-                    ),
-                  ),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
               ),
             ],
           ),
