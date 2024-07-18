@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'core/Routes.dart';
-import 'core/theme.dart';
+import 'core/Routing/Routes.dart';
+import 'core/Theming/theme.dart';
 
 void main() {
   runApp(MyApp());

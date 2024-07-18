@@ -1,8 +1,9 @@
 import 'package:advanced_complete_app/core/image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:animate_do/animate_do.dart';
 
-import 'core/Routes.dart';
+import 'core/Routing/Routes.dart';
 
 class SplashView extends StatefulWidget {
   SplashView._intarnal();
@@ -29,10 +30,11 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: 
-        SvgPicture.asset(
-          ImageAssets.splash,
+      body: FadeInUpBig(
+        child: Center(
+          child: SvgPicture.asset(
+            ImageAssets.splash,
+          ),
         ),
       ),
     );

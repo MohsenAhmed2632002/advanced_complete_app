@@ -2,7 +2,7 @@ import 'package:advanced_complete_app/Login/LoginPage.dart';
 import 'package:advanced_complete_app/OnBording/OnBording.dart';
 import 'package:flutter/material.dart';
 
-import '../splash_screen.dart';
+import '../../splash_screen.dart';
 
 class Routes {
   static const String onBordingRoute = "/onBording";

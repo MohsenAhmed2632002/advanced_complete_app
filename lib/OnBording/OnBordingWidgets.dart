@@ -1,6 +1,6 @@
-import 'package:advanced_complete_app/core/Font.dart';
+import 'package:advanced_complete_app/core/Theming/Font.dart';
 import 'package:advanced_complete_app/core/image.dart';
-import 'package:advanced_complete_app/core/theme.dart';
+import 'package:advanced_complete_app/core/Theming/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

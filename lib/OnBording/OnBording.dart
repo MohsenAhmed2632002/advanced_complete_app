@@ -1,8 +1,8 @@
 import 'package:advanced_complete_app/OnBording/OnBordingWidgets.dart';
-import 'package:advanced_complete_app/core/Font.dart';
-import 'package:advanced_complete_app/core/Routes.dart';
-import 'package:advanced_complete_app/core/Shared_Widgets.dart';
-import 'package:advanced_complete_app/core/theme.dart';
+import 'package:advanced_complete_app/core/Theming/Font.dart';
+import 'package:advanced_complete_app/core/Routing/Routes.dart';
+import 'package:advanced_complete_app/core/Widgets/Shared_Widgets.dart';
+import 'package:advanced_complete_app/core/Theming/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,14 +38,19 @@ class OnBording extends StatelessWidget {
                   context: context,
                 ),
               ),
-              MyTextButton(
-                text: "Get Started",
-                onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    Routes.loginRoute,
-                  );
-                },
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                ),
+                child: MyTextButton(
+                  text: "Get Started",
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.loginRoute,
+                    );
+                  },
+                ),
               ),
             ],
           ),
