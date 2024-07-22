@@ -1,10 +1,36 @@
+import 'package:advanced_complete_app/core/di/Dependency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/Routing/Routes.dart';
 import 'core/Theming/theme.dart';
 
 void main() {
+  setupGitDI();
   runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final brightness = View.of(context).platformDispatcher.platformBrightness;
+    MaterialTheme theme = MaterialTheme(context: context);
+    return ScreenUtilInit(
+      designSize: Size(375, 812),
+      child: MaterialApp(
+        theme:
+            //  brightness == Brightness.light
+            // ?
+            theme.lightMediumContrast(),
+        // :
+        // theme.darkHighContrast(),
+        onGenerateRoute: RoutesGenerator.getRoutes,
+        initialRoute: Routes.splashRoute,
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
 }
 
 // class MyApp extends StatefulWidget {
@@ -52,27 +78,3 @@ void main() {
 //     );
 //   }
 // }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final brightness = View.of(context).platformDispatcher.platformBrightness;
-    MaterialTheme theme = MaterialTheme(context:context);
-    return ScreenUtilInit(
-      designSize: Size(375, 812),
-      child: MaterialApp(
-        theme:
-            //  brightness == Brightness.light
-            // ? 
-            theme.lightMediumContrast(),
-            // :
-            // theme.darkHighContrast(),
-        onGenerateRoute: RoutesGenerator.getRoutes,
-        initialRoute: Routes.splashRoute,
-        debugShowCheckedModeBanner: false,
-      ),
-    );
-  }
-}

@@ -1,6 +1,10 @@
-import 'package:advanced_complete_app/Login/LoginPage.dart';
-import 'package:advanced_complete_app/OnBording/OnBording.dart';
+import 'package:advanced_complete_app/features/Login/Logic/login_cubit.dart';
+import 'package:advanced_complete_app/features/Login/UI/LoginPage.dart';
+import 'package:advanced_complete_app/features/OnBording/OnBording.dart';
+import 'package:advanced_complete_app/core/di/Dependency_injection.dart';
+import 'package:advanced_complete_app/features/home/presentation/pages/HomeScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../splash_screen.dart';
 
@@ -26,20 +30,22 @@ class RoutesGenerator {
         return MaterialPageRoute(
           builder: (context) => SplashView(),
         );
-        case Routes.onBordingRoute:
+      case Routes.onBordingRoute:
         return MaterialPageRoute(
           builder: (context) => OnBording(),
         );
       case Routes.loginRoute:
         return MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: LoginPage(),
+          ),
         );
-      
 
-      // case Routes.storDetailsRoute:
-      //   return MaterialPageRoute(
-      //     builder: (context) => storDetailsRoute(),
-      //   );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (context) => HomeScreen(),
+        );
       // case Routes.forgetpassRoute:
       //   return MaterialPageRoute(
       //     builder: (context) => storDetailsRoute(),
@@ -56,6 +62,7 @@ class RoutesGenerator {
     }
   }
 }
+
 class ErorPage extends StatelessWidget {
   const ErorPage({super.key});
 

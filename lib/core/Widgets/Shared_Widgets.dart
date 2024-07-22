@@ -6,24 +6,32 @@ class MyTextFormField extends StatelessWidget {
   final TextStyle? inputTextstyle;
   final bool? isObscureText;
   final Widget? suffixIcon;
-  // final String hitText;
+  final String hitText;
   final String label;
-  const MyTextFormField({
+  final TextEditingController? controller;
+  final Function(String?) validator;
+   MyTextFormField({
     super.key,
     this.hintstyle,
     this.inputTextstyle,
     this.isObscureText,
     this.suffixIcon,
-    // required this.hitText,
+    required this.hitText,
     required this.label,
+   required this.controller,
+    required this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      validator: (value) {
+        return validator(value);
+      },
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
-        // hintText: hitText,
+        hintText: hitText,
         label: Text(label),
       ),
       obscureText: isObscureText ?? false,

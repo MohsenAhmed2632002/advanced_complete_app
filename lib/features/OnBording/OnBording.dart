@@ -1,4 +1,4 @@
-import 'package:advanced_complete_app/OnBording/OnBordingWidgets.dart';
+import 'package:advanced_complete_app/features/OnBording/OnBordingWidgets.dart';
 import 'package:advanced_complete_app/core/Theming/Font.dart';
 import 'package:advanced_complete_app/core/Routing/Routes.dart';
 import 'package:advanced_complete_app/core/Widgets/Shared_Widgets.dart';
