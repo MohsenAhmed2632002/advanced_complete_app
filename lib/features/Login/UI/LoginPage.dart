@@ -1,3 +1,4 @@
+import 'package:advanced_complete_app/core/Routing/Routes.dart';
 import 'package:advanced_complete_app/core/Theming/Font.dart';
 import 'package:advanced_complete_app/core/Widgets/Shared_Widgets.dart';
 import 'package:advanced_complete_app/core/Theming/theme.dart';
@@ -119,14 +120,18 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Already have an account yet?  ",
-                    ),
-                    TextSpan(
-                      text: "Sign Up",
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account yet?  ",
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.SignUpScreen);
+                    },
+                    child: Text(
+                      "Sign Up",
                       style: getBoldItalicTextStyle(
                         context: context,
                         color: MaterialTheme(
@@ -134,8 +139,8 @@ class LoginPage extends StatelessWidget {
                         ).light().primaryColor,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 5.h,
@@ -152,10 +157,10 @@ class LoginPage extends StatelessWidget {
         // context.read<LoginCubit>().formKey.currentState != null &&
         context.read<LoginCubit>().formKey.currentState!.validate()) {
       context.read<LoginCubit>().emitLoginState(
-            LoginRequestBody(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text,
-            ),
+          // LoginRequestBody(
+          //   email: context.read<LoginCubit>().emailController.text,
+          //   password: context.read<LoginCubit>().passwordController.text,
+          // ),
           );
     }
   }

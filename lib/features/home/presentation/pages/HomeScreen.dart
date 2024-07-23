@@ -5,13 +5,11 @@ import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: FadeInUpBig(
         child: Center(
-          child: SvgPicture.asset(
-            ImageAssets.splash,
-          ),
+          child: Text("Home Screen"),
         ),
       ),
     );

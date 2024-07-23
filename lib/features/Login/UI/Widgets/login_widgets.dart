@@ -3,6 +3,7 @@ import 'package:advanced_complete_app/core/Routing/Routes.dart';
 import 'package:advanced_complete_app/core/Widgets/Shared_Widgets.dart';
 import 'package:advanced_complete_app/features/Login/Logic/login_cubit.dart';
 import 'package:advanced_complete_app/features/Login/Logic/login_state.dart';
+import 'package:advanced_complete_app/features/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -106,7 +107,6 @@ class _MyEmailAndPasswordState extends State<MyEmailAndPassword> {
     super.dispose();
   }
 }
-
 class PasswordValidation extends StatelessWidget {
   final bool hasUpperCase;
   final bool hasLowerCase;
@@ -117,11 +117,11 @@ class PasswordValidation extends StatelessWidget {
 
   const PasswordValidation({
     super.key,
-    required this.hasUpperCase,
+   
+    required this.hasMinimumLength, required this.hasUpperCase,
     required this.hasLowerCase,
     required this.hasSpecialChar,
     required this.hasNumber,
-    required this.hasMinimumLength,
   });
 
   @override
@@ -129,31 +129,31 @@ class PasswordValidation extends StatelessWidget {
     return Column(
       children: [
         buildValidationRow(
-          "At Least One HasUpperCase",
+          "At Least has 1  UpperCase Letter",
           hasUpperCase,
           // context,
         ),
         SizedBox(height: 10.h),
         buildValidationRow(
-          "At Least One HasLowerCase",
+          "At Least has 1 LowerCase Letter",
           hasLowerCase,
           // context,
         ),
         SizedBox(height: 10.h),
         buildValidationRow(
-          "At Least One HasSpecialChar",
+          "At Least Has 1 SpecialChar Letter",
           hasSpecialChar,
           // context,
         ),
         SizedBox(height: 10.h),
         buildValidationRow(
-          "At Least One hasNumber",
+          "At Least Has 1  Number Letter",
           hasNumber,
           // context,
         ),
         SizedBox(height: 10.h),
         buildValidationRow(
-          "At Least One HasMinimumLength",
+          "At Least Has 1 MinimumLength Letter",
           hasMinimumLength,
           // context,
         ),
@@ -175,13 +175,15 @@ class PasswordValidation extends StatelessWidget {
               ),
         Text(
           text,
-          style: TextStyle(fontSize: 15
-                  // context: context,
-                  )
+          style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  fontStyle: FontStyle.italic)
               .copyWith(
-            decoration: hasValidated ? TextDecoration.underline : TextDecoration.overline,
+            decoration:
+                hasValidated ? TextDecoration.none : TextDecoration.underline,
             color: hasValidated ? Colors.green : Colors.red,
-            decorationColor: Colors.green,
+            decorationColor: hasValidated ? Colors.green : Colors.red,
             decorationThickness: 2,
           ),
         ),
@@ -209,7 +211,6 @@ class LoginBlocListener extends StatelessWidget {
             );
           },
           success: (loginResponse) {
-            //Navigator.pop(context);
             Navigator.pushReplacementNamed(
               context,
               Routes.homeScreen,
@@ -217,6 +218,7 @@ class LoginBlocListener extends StatelessWidget {
           },
           failure: (error) {
             showDialog(
+              barrierColor: Colors.red,
               context: context,
               builder: (context) => Center(
                 child: Text(error),

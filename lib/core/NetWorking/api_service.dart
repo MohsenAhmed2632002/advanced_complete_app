@@ -1,4 +1,6 @@
 import 'package:advanced_complete_app/features/Login/Data/Model/login_response.dart';
+import 'package:advanced_complete_app/features/sign_up/data/models/sign_up_requestBody.dart';
+import 'package:advanced_complete_app/features/sign_up/data/models/sign_up_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 import 'package:advanced_complete_app/core/NetWorking/API.dart';
@@ -17,5 +19,11 @@ abstract class ApiService {
   @POST(APIConstants.login)
   Future<LoginResponse> login(
     @Body() LoginRequestBody loginRequestBody,
+  );
+
+  
+  @POST(APIConstants.signUp)
+  Future<SignUpResponse> signUp(
+    @Body() SignUpRequestBody signUpRequestBody,
   );
 }

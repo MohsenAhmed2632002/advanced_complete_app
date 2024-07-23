@@ -377,6 +377,7 @@ class MaterialTheme {
         fontFamily: FontConstants.fontFamily,
         brightness: colorScheme.brightness,
         colorScheme: colorScheme,
+
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             fixedSize: MaterialStatePropertyAll(
@@ -400,7 +401,7 @@ class MaterialTheme {
           isDense: true,
           filled: true,
           suffixIconColor: colorScheme.primary,
-          fillColor: colorScheme.onPrimary,
+          fillColor: colorScheme.onTertiary,
           labelStyle: getRegulerTextStyle(
             context: context,
             fontSize: 20,
@@ -438,7 +439,7 @@ class MaterialTheme {
             ),
           ),
         ),
-        scaffoldBackgroundColor: colorScheme.background,
+        scaffoldBackgroundColor: Colors.white,
         canvasColor: colorScheme.surface,
       );
 

@@ -3,6 +3,8 @@ import 'package:advanced_complete_app/features/Login/UI/LoginPage.dart';
 import 'package:advanced_complete_app/features/OnBording/OnBording.dart';
 import 'package:advanced_complete_app/core/di/Dependency_injection.dart';
 import 'package:advanced_complete_app/features/home/presentation/pages/HomeScreen.dart';
+import 'package:advanced_complete_app/features/sign_up/presentation/pages/sign_up.dart';
+import 'package:advanced_complete_app/features/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +15,7 @@ class Routes {
 
   static const String homeScreen = "/HomeScreen";
 
-  static const String registerRoute = "/register";
+  static const String SignUpScreen = "/SignUpScreen";
   static const String loginRoute = "/loginRoute";
 
   static const String forgetpassRoute = "/forgetpass";
@@ -46,10 +48,13 @@ class RoutesGenerator {
         return MaterialPageRoute(
           builder: (context) => HomeScreen(),
         );
-      // case Routes.forgetpassRoute:
-      //   return MaterialPageRoute(
-      //     builder: (context) => storDetailsRoute(),
-      //   );
+      case Routes.SignUpScreen:
+         return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+            child: SignUpScreen(),
+          ),
+        );
       // case Routes.registerRoute:
       //   return MaterialPageRoute(
       //     builder: (context) => storDetailsRoute(),
