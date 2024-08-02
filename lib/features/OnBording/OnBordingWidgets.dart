@@ -15,7 +15,7 @@ class MainIcon extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(ImageAssets.splash),
+        SvgPicture.asset(ImageAssets.splashsvg),
       ],
     );
   }

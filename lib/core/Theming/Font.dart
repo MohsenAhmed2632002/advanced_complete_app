@@ -45,10 +45,9 @@ TextStyle _getTextStyle(
     required FontWeight fontWeight,
     required BuildContext context}) {
   return TextStyle(
-     color: color,
+    color: color,
     fontFamily: FontConstants.fontFamily,
     fontSize: theResponsiveFontSize(
-      
       fontSize: fontsize,
       context: context,
     ),
@@ -80,19 +79,30 @@ TextStyle getItalicTextStyle({
       context: context);
 }
 
+TextStyle getItalicTextStylewithBlueColor({
+  Color color = Colors.blue,
+  double fontSize = Fontsize.s18,
+  required BuildContext context,
+}) {
+  return _getTextStyle(
+    color: color,
+    fontsize: fontSize,
+    fontWeight: fontWeightManager.italic,
+    context: context,
+  );
+}
+
 TextStyle getBoldItalicTextStyle({
   Color color = Colors.black,
   double fontSize = Fontsize.s20,
   required BuildContext context,
 }) {
   return _getTextStyle(
-        color: color,
-
+      color: color,
       fontsize: fontSize,
       fontWeight: fontWeightManager.bolditalic,
       context: context);
 }
-
 
 TextStyle getBoldTextStyle({
   Color color = Colors.black,

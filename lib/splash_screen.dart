@@ -33,7 +33,7 @@ class _SplashViewState extends State<SplashView> {
       body: FadeInUpBig(
         child: Center(
           child: SvgPicture.asset(
-            ImageAssets.splash,
+            ImageAssets.splashsvg,
           ),
         ),
       ),
