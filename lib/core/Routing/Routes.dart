@@ -2,6 +2,7 @@ import 'package:advanced_complete_app/features/Login/Logic/login_cubit.dart';
 import 'package:advanced_complete_app/features/Login/UI/LoginPage.dart';
 import 'package:advanced_complete_app/features/OnBording/OnBording.dart';
 import 'package:advanced_complete_app/core/di/Dependency_injection.dart';
+import 'package:advanced_complete_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:advanced_complete_app/features/home/presentation/pages/HomeScreen.dart';
 import 'package:advanced_complete_app/features/sign_up/presentation/pages/sign_up.dart';
 import 'package:advanced_complete_app/features/sign_up/presentation/cubit/sign_up_cubit.dart';
@@ -46,10 +47,13 @@ class RoutesGenerator {
 
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getSpecialization(),
+            child: HomeScreen(),
+          ),
         );
       case Routes.SignUpScreen:
-         return MaterialPageRoute(
+        return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => getIt<SignUpCubit>(),
             child: SignUpScreen(),

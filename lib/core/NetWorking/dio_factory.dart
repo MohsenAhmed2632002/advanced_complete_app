@@ -9,14 +9,21 @@ class DioFactory {
     Duration time = const Duration(seconds: 30);
     if (dio == null) {
       dio = Dio();
+
       dio!
         ..options.connectTimeout = time
         ..options.receiveTimeout = time;
+      addDioHeder();
+
       addDioInterceptor();
       return dio!;
     } else {
       return dio!;
     }
+  }
+
+  static void addDioHeder() {
+    dio!.options.headers = {"Accept": "application/json","Authorization":""};
   }
 
   static addDioInterceptor() {

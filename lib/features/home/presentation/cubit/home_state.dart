@@ -1,10 +1,12 @@
-// part of 'home_cubit.dart';
+import 'package:advanced_complete_app/features/home/data/models/Specialization_Response_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-// abstract class HomeState extends Equatable {
-//   const HomeState();
+part 'home_state.freezed.dart';
 
-//   @override
-//   List<Object> get props => [];
-// }
-
-// class HomeInitial extends HomeState {}
+@freezed
+class HomeState with _$HomeState {
+  const factory HomeState.initial() = _Initial;
+  const factory HomeState.SpecializationLoading() = Loading;
+  const factory HomeState.SpecializationSuccess( SpecializationResponseModel specializationResponseModel) = Success;
+  const factory HomeState.SpecializationFailure(String message) = Failure;
+}
