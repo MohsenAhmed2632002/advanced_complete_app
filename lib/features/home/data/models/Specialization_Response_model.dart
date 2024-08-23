@@ -15,10 +15,10 @@ class SpecializationResponseModel {
 
 @JsonSerializable()
 class SpecializationData {
-  int id;
-  String name;
+  int? id;
+  String? name;
   @JsonKey(name: "doctors")
-  List<Doctors> doctorslist;
+  List<Doctors>? doctorslist;
   SpecializationData({
     required this.id,
     required this.name,
@@ -31,14 +31,14 @@ class SpecializationData {
 
 @JsonSerializable()
 class Doctors {
-  int id;
-  String name;
-  String image;
-  String email;
-  String photo;
-  String phone;
-  String gender;
-  String degree;
+  int? id;
+  String? name;
+  String? image;
+  String? email;
+  String? photo;
+  String? phone;
+  String? gender;
+  String? degree;
   @JsonKey(name: "appoint_price")
   int price;
   Doctors({

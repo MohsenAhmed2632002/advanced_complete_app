@@ -11,12 +11,14 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepo.getSpecialization();
 
     response.when(
-      success: (mySpecializationResponseModel) {
+      success: (specializationResponseModel) {
         emit(
           HomeState.SpecializationSuccess(
-            mySpecializationResponseModel,
+            specializationResponseModel,
           ),
         );
+        print(specializationResponseModel
+            .specializationDatalist[0].doctorslist![0].name??[]);
       },
       failure: (message) {
         emit(HomeState.SpecializationFailure(message));

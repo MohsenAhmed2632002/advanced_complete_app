@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$HomeState {
+mixin _$HomeState<SpecializationResponseModel> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -47,40 +47,53 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) SpecializationLoading,
-    required TResult Function(Success value) SpecializationSuccess,
-    required TResult Function(Failure value) SpecializationFailure,
+    required TResult Function(_Initial<SpecializationResponseModel> value)
+        initial,
+    required TResult Function(Loading<SpecializationResponseModel> value)
+        SpecializationLoading,
+    required TResult Function(Success<SpecializationResponseModel> value)
+        SpecializationSuccess,
+    required TResult Function(Failure<SpecializationResponseModel> value)
+        SpecializationFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? SpecializationLoading,
-    TResult? Function(Success value)? SpecializationSuccess,
-    TResult? Function(Failure value)? SpecializationFailure,
+    TResult? Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult? Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult? Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult? Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? SpecializationLoading,
-    TResult Function(Success value)? SpecializationSuccess,
-    TResult Function(Failure value)? SpecializationFailure,
+    TResult Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res, HomeState>;
+abstract class $HomeStateCopyWith<SpecializationResponseModel, $Res> {
+  factory $HomeStateCopyWith(HomeState<SpecializationResponseModel> value,
+          $Res Function(HomeState<SpecializationResponseModel>) then) =
+      _$HomeStateCopyWithImpl<SpecializationResponseModel, $Res,
+          HomeState<SpecializationResponseModel>>;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
-    implements $HomeStateCopyWith<$Res> {
+class _$HomeStateCopyWithImpl<SpecializationResponseModel, $Res,
+        $Val extends HomeState<SpecializationResponseModel>>
+    implements $HomeStateCopyWith<SpecializationResponseModel, $Res> {
   _$HomeStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -90,35 +103,39 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<SpecializationResponseModel, $Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+          _$InitialImpl<SpecializationResponseModel> value,
+          $Res Function(_$InitialImpl<SpecializationResponseModel>) then) =
+      __$$InitialImplCopyWithImpl<SpecializationResponseModel, $Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$InitialImplCopyWithImpl<SpecializationResponseModel, $Res>
+    extends _$HomeStateCopyWithImpl<SpecializationResponseModel, $Res,
+        _$InitialImpl<SpecializationResponseModel>>
+    implements _$$InitialImplCopyWith<SpecializationResponseModel, $Res> {
+  __$$InitialImplCopyWithImpl(_$InitialImpl<SpecializationResponseModel> _value,
+      $Res Function(_$InitialImpl<SpecializationResponseModel>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl<SpecializationResponseModel>
+    implements _Initial<SpecializationResponseModel> {
   const _$InitialImpl();
 
   @override
   String toString() {
-    return 'HomeState.initial()';
+    return 'HomeState<$SpecializationResponseModel>.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$InitialImpl<SpecializationResponseModel>);
   }
 
   @override
@@ -168,10 +185,14 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) SpecializationLoading,
-    required TResult Function(Success value) SpecializationSuccess,
-    required TResult Function(Failure value) SpecializationFailure,
+    required TResult Function(_Initial<SpecializationResponseModel> value)
+        initial,
+    required TResult Function(Loading<SpecializationResponseModel> value)
+        SpecializationLoading,
+    required TResult Function(Success<SpecializationResponseModel> value)
+        SpecializationSuccess,
+    required TResult Function(Failure<SpecializationResponseModel> value)
+        SpecializationFailure,
   }) {
     return initial(this);
   }
@@ -179,10 +200,13 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? SpecializationLoading,
-    TResult? Function(Success value)? SpecializationSuccess,
-    TResult? Function(Failure value)? SpecializationFailure,
+    TResult? Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult? Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult? Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult? Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
   }) {
     return initial?.call(this);
   }
@@ -190,10 +214,13 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? SpecializationLoading,
-    TResult Function(Success value)? SpecializationSuccess,
-    TResult Function(Failure value)? SpecializationFailure,
+    TResult Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -203,40 +230,45 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements HomeState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _Initial<SpecializationResponseModel>
+    implements HomeState<SpecializationResponseModel> {
+  const factory _Initial() = _$InitialImpl<SpecializationResponseModel>;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
+abstract class _$$LoadingImplCopyWith<SpecializationResponseModel, $Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+          _$LoadingImpl<SpecializationResponseModel> value,
+          $Res Function(_$LoadingImpl<SpecializationResponseModel>) then) =
+      __$$LoadingImplCopyWithImpl<SpecializationResponseModel, $Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+class __$$LoadingImplCopyWithImpl<SpecializationResponseModel, $Res>
+    extends _$HomeStateCopyWithImpl<SpecializationResponseModel, $Res,
+        _$LoadingImpl<SpecializationResponseModel>>
+    implements _$$LoadingImplCopyWith<SpecializationResponseModel, $Res> {
+  __$$LoadingImplCopyWithImpl(_$LoadingImpl<SpecializationResponseModel> _value,
+      $Res Function(_$LoadingImpl<SpecializationResponseModel>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingImpl implements Loading {
+class _$LoadingImpl<SpecializationResponseModel>
+    implements Loading<SpecializationResponseModel> {
   const _$LoadingImpl();
 
   @override
   String toString() {
-    return 'HomeState.SpecializationLoading()';
+    return 'HomeState<$SpecializationResponseModel>.SpecializationLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingImpl<SpecializationResponseModel>);
   }
 
   @override
@@ -286,10 +318,14 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) SpecializationLoading,
-    required TResult Function(Success value) SpecializationSuccess,
-    required TResult Function(Failure value) SpecializationFailure,
+    required TResult Function(_Initial<SpecializationResponseModel> value)
+        initial,
+    required TResult Function(Loading<SpecializationResponseModel> value)
+        SpecializationLoading,
+    required TResult Function(Success<SpecializationResponseModel> value)
+        SpecializationSuccess,
+    required TResult Function(Failure<SpecializationResponseModel> value)
+        SpecializationFailure,
   }) {
     return SpecializationLoading(this);
   }
@@ -297,10 +333,13 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? SpecializationLoading,
-    TResult? Function(Success value)? SpecializationSuccess,
-    TResult? Function(Failure value)? SpecializationFailure,
+    TResult? Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult? Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult? Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult? Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
   }) {
     return SpecializationLoading?.call(this);
   }
@@ -308,10 +347,13 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? SpecializationLoading,
-    TResult Function(Success value)? SpecializationSuccess,
-    TResult Function(Failure value)? SpecializationFailure,
+    TResult Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
     required TResult orElse(),
   }) {
     if (SpecializationLoading != null) {
@@ -321,34 +363,37 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements HomeState {
-  const factory Loading() = _$LoadingImpl;
+abstract class Loading<SpecializationResponseModel>
+    implements HomeState<SpecializationResponseModel> {
+  const factory Loading() = _$LoadingImpl<SpecializationResponseModel>;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
+abstract class _$$SuccessImplCopyWith<SpecializationResponseModel, $Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+          _$SuccessImpl<SpecializationResponseModel> value,
+          $Res Function(_$SuccessImpl<SpecializationResponseModel>) then) =
+      __$$SuccessImplCopyWithImpl<SpecializationResponseModel, $Res>;
   @useResult
   $Res call({SpecializationResponseModel specializationResponseModel});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+class __$$SuccessImplCopyWithImpl<SpecializationResponseModel, $Res>
+    extends _$HomeStateCopyWithImpl<SpecializationResponseModel, $Res,
+        _$SuccessImpl<SpecializationResponseModel>>
+    implements _$$SuccessImplCopyWith<SpecializationResponseModel, $Res> {
+  __$$SuccessImplCopyWithImpl(_$SuccessImpl<SpecializationResponseModel> _value,
+      $Res Function(_$SuccessImpl<SpecializationResponseModel>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? specializationResponseModel = null,
+    Object? specializationResponseModel = freezed,
   }) {
-    return _then(_$SuccessImpl(
-      null == specializationResponseModel
+    return _then(_$SuccessImpl<SpecializationResponseModel>(
+      freezed == specializationResponseModel
           ? _value.specializationResponseModel
           : specializationResponseModel // ignore: cast_nullable_to_non_nullable
               as SpecializationResponseModel,
@@ -358,7 +403,8 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessImpl implements Success {
+class _$SuccessImpl<SpecializationResponseModel>
+    implements Success<SpecializationResponseModel> {
   const _$SuccessImpl(this.specializationResponseModel);
 
   @override
@@ -366,28 +412,30 @@ class _$SuccessImpl implements Success {
 
   @override
   String toString() {
-    return 'HomeState.SpecializationSuccess(specializationResponseModel: $specializationResponseModel)';
+    return 'HomeState<$SpecializationResponseModel>.SpecializationSuccess(specializationResponseModel: $specializationResponseModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
-            (identical(other.specializationResponseModel,
-                    specializationResponseModel) ||
-                other.specializationResponseModel ==
-                    specializationResponseModel));
+            other is _$SuccessImpl<SpecializationResponseModel> &&
+            const DeepCollectionEquality().equals(
+                other.specializationResponseModel,
+                specializationResponseModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, specializationResponseModel);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(specializationResponseModel));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+  _$$SuccessImplCopyWith<SpecializationResponseModel,
+          _$SuccessImpl<SpecializationResponseModel>>
+      get copyWith => __$$SuccessImplCopyWithImpl<SpecializationResponseModel,
+          _$SuccessImpl<SpecializationResponseModel>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -433,10 +481,14 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) SpecializationLoading,
-    required TResult Function(Success value) SpecializationSuccess,
-    required TResult Function(Failure value) SpecializationFailure,
+    required TResult Function(_Initial<SpecializationResponseModel> value)
+        initial,
+    required TResult Function(Loading<SpecializationResponseModel> value)
+        SpecializationLoading,
+    required TResult Function(Success<SpecializationResponseModel> value)
+        SpecializationSuccess,
+    required TResult Function(Failure<SpecializationResponseModel> value)
+        SpecializationFailure,
   }) {
     return SpecializationSuccess(this);
   }
@@ -444,10 +496,13 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? SpecializationLoading,
-    TResult? Function(Success value)? SpecializationSuccess,
-    TResult? Function(Failure value)? SpecializationFailure,
+    TResult? Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult? Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult? Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult? Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
   }) {
     return SpecializationSuccess?.call(this);
   }
@@ -455,10 +510,13 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? SpecializationLoading,
-    TResult Function(Success value)? SpecializationSuccess,
-    TResult Function(Failure value)? SpecializationFailure,
+    TResult Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
     required TResult orElse(),
   }) {
     if (SpecializationSuccess != null) {
@@ -468,32 +526,36 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements HomeState {
+abstract class Success<SpecializationResponseModel>
+    implements HomeState<SpecializationResponseModel> {
   const factory Success(
           final SpecializationResponseModel specializationResponseModel) =
-      _$SuccessImpl;
+      _$SuccessImpl<SpecializationResponseModel>;
 
   SpecializationResponseModel get specializationResponseModel;
   @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SuccessImplCopyWith<SpecializationResponseModel,
+          _$SuccessImpl<SpecializationResponseModel>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<$Res> {
+abstract class _$$FailureImplCopyWith<SpecializationResponseModel, $Res> {
   factory _$$FailureImplCopyWith(
-          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+          _$FailureImpl<SpecializationResponseModel> value,
+          $Res Function(_$FailureImpl<SpecializationResponseModel>) then) =
+      __$$FailureImplCopyWithImpl<SpecializationResponseModel, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$FailureImpl>
-    implements _$$FailureImplCopyWith<$Res> {
-  __$$FailureImplCopyWithImpl(
-      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
+class __$$FailureImplCopyWithImpl<SpecializationResponseModel, $Res>
+    extends _$HomeStateCopyWithImpl<SpecializationResponseModel, $Res,
+        _$FailureImpl<SpecializationResponseModel>>
+    implements _$$FailureImplCopyWith<SpecializationResponseModel, $Res> {
+  __$$FailureImplCopyWithImpl(_$FailureImpl<SpecializationResponseModel> _value,
+      $Res Function(_$FailureImpl<SpecializationResponseModel>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -501,7 +563,7 @@ class __$$FailureImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$FailureImpl(
+    return _then(_$FailureImpl<SpecializationResponseModel>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -512,7 +574,8 @@ class __$$FailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FailureImpl implements Failure {
+class _$FailureImpl<SpecializationResponseModel>
+    implements Failure<SpecializationResponseModel> {
   const _$FailureImpl(this.message);
 
   @override
@@ -520,14 +583,14 @@ class _$FailureImpl implements Failure {
 
   @override
   String toString() {
-    return 'HomeState.SpecializationFailure(message: $message)';
+    return 'HomeState<$SpecializationResponseModel>.SpecializationFailure(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FailureImpl &&
+            other is _$FailureImpl<SpecializationResponseModel> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -537,8 +600,10 @@ class _$FailureImpl implements Failure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
-      __$$FailureImplCopyWithImpl<_$FailureImpl>(this, _$identity);
+  _$$FailureImplCopyWith<SpecializationResponseModel,
+          _$FailureImpl<SpecializationResponseModel>>
+      get copyWith => __$$FailureImplCopyWithImpl<SpecializationResponseModel,
+          _$FailureImpl<SpecializationResponseModel>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -584,10 +649,14 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(Loading value) SpecializationLoading,
-    required TResult Function(Success value) SpecializationSuccess,
-    required TResult Function(Failure value) SpecializationFailure,
+    required TResult Function(_Initial<SpecializationResponseModel> value)
+        initial,
+    required TResult Function(Loading<SpecializationResponseModel> value)
+        SpecializationLoading,
+    required TResult Function(Success<SpecializationResponseModel> value)
+        SpecializationSuccess,
+    required TResult Function(Failure<SpecializationResponseModel> value)
+        SpecializationFailure,
   }) {
     return SpecializationFailure(this);
   }
@@ -595,10 +664,13 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(Loading value)? SpecializationLoading,
-    TResult? Function(Success value)? SpecializationSuccess,
-    TResult? Function(Failure value)? SpecializationFailure,
+    TResult? Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult? Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult? Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult? Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
   }) {
     return SpecializationFailure?.call(this);
   }
@@ -606,10 +678,13 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Loading value)? SpecializationLoading,
-    TResult Function(Success value)? SpecializationSuccess,
-    TResult Function(Failure value)? SpecializationFailure,
+    TResult Function(_Initial<SpecializationResponseModel> value)? initial,
+    TResult Function(Loading<SpecializationResponseModel> value)?
+        SpecializationLoading,
+    TResult Function(Success<SpecializationResponseModel> value)?
+        SpecializationSuccess,
+    TResult Function(Failure<SpecializationResponseModel> value)?
+        SpecializationFailure,
     required TResult orElse(),
   }) {
     if (SpecializationFailure != null) {
@@ -619,11 +694,14 @@ class _$FailureImpl implements Failure {
   }
 }
 
-abstract class Failure implements HomeState {
-  const factory Failure(final String message) = _$FailureImpl;
+abstract class Failure<SpecializationResponseModel>
+    implements HomeState<SpecializationResponseModel> {
+  const factory Failure(final String message) =
+      _$FailureImpl<SpecializationResponseModel>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FailureImplCopyWith<SpecializationResponseModel,
+          _$FailureImpl<SpecializationResponseModel>>
+      get copyWith => throw _privateConstructorUsedError;
 }

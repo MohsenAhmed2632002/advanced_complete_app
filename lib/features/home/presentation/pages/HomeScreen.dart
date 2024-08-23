@@ -41,6 +41,12 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
+              // Container(
+              //   height: 100.h,
+              //   child: Center(
+              //     child: CircularProgressIndicator(),
+              //   ),
+              // ),
               BlocBuilder<HomeCubit, HomeState>(
                 buildWhen: (previous, current) =>
                     current is Loading ||
@@ -49,8 +55,7 @@ class HomeScreen extends StatelessWidget {
                 builder: (context, state) {
                   return state.maybeWhen(
                     SpecializationLoading: () {
-                      return Container(
-                        height: 100.h,
+                      return Expanded(
                         child: Center(
                           child: CircularProgressIndicator(),
                         ),
@@ -58,7 +63,9 @@ class HomeScreen extends StatelessWidget {
                     },
                     SpecializationSuccess: (mySpecializationResponseModel) {
                       var mySpecializationDataList =
-                          mySpecializationResponseModel.specializationDatalist;
+                          mySpecializationResponseModel
+                                  .specializationDatalist ??
+                              [];
                       return Expanded(
                         child: Column(
                           children: [
@@ -66,25 +73,34 @@ class HomeScreen extends StatelessWidget {
                               specializationDataList: mySpecializationDataList,
                             ),
                             SizedBox(
+                              //     // height: 10.h,
                               height: 10.h,
                             ),
+                            // Container(
+                            // height: 200,
+                            // child:
                             DoctorVerticalListView(
                               doctorsList:
                                   mySpecializationDataList[0].doctorslist,
+                              // ),
                             ),
                           ],
                         ),
                       );
                     },
                     SpecializationFailure: (message) {
-                      return SizedBox.shrink();
+                      return SizedBox(
+                        child: Text(message),
+                      );
                     },
                     orElse: () {
-                      return SizedBox.shrink();
+                      return SizedBox(
+                        child: Text("else"),
+                      );
                     },
                   );
                 },
-              )
+              ),
             ],
           ),
         ),

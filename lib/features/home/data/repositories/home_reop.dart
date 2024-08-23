@@ -9,6 +9,7 @@ class HomeRepo {
   Future<ApiResult<SpecializationResponseModel>> getSpecialization() async {
     try {
       final response = await homeAPI.getSpecialization();
+      print(response.specializationDatalist[0].doctorslist?[0].name??[]);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(

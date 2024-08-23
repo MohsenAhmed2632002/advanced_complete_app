@@ -14,14 +14,15 @@ class DoctorSpecialityHorizontalListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50.h,
+    return Container(
+      // color: Co lors.red,
+      height: 55.h,
       child: ListView.separated(
         shrinkWrap: true,
         separatorBuilder: (context, index) {
           return SizedBox(
-            // height: 10.h,
-            width: 5.w,
+            //     // height: 10.h,
+            width: 10.w,
           );
         },
         scrollDirection: Axis.horizontal,
@@ -48,12 +49,26 @@ class SpcecializationDataListviewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: 50,
-      backgroundColor: Colors.amberAccent,
-      child: Text(
-        "${specializationData.name}",
-        style: getBoldItalicTextStyle(context: context),
+    return Container(
+      padding: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            15,
+          ),
+        ),
+        border: Border.all(
+          color: Colors.blue,
+        ),
+      ),
+      child: Center(
+        child: Text(
+          "${specializationData.name}" ?? 'اسم غير معروف',
+          style: getItalicTextStyle(
+            context: context,
+            fontSize: 15,
+          ),
+        ),
       ),
     );
   }
@@ -68,12 +83,16 @@ class DoctorVerticalListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return
+        // Container(
+        // height: 100.h,
+        // child:
+        Expanded(
       child: ListView.separated(
         shrinkWrap: true,
         separatorBuilder: (context, index) {
           return SizedBox(
-            height: 10.h,
+            height: 5.h,
           );
         },
         itemCount: doctorsList.length,
@@ -82,6 +101,7 @@ class DoctorVerticalListView extends StatelessWidget {
             doctorsModel: doctorsList[index],
           );
         },
+        // ),
       ),
     );
   }
@@ -105,19 +125,17 @@ class DoctorsListViewItem extends StatelessWidget {
         Column(
           children: [
             Text(
-              "${doctorsModel.name}",
-              style: getBoldItalicTextStyle(context: context),
+              "${doctorsModel.name}" ?? 'اسم غير معروف',
+              style: getItalicTextStyle(context: context),
             ),
             Text(
-              "${doctorsModel.degree}|${doctorsModel.phone}",
+              "${doctorsModel.degree}|${doctorsModel.phone}" ?? 'اسم غير معروف',
               style: getItalicTextStyle(
-                context: context,
-                color: Colors.grey,
-              ),
+                  context: context, color: Colors.grey, fontSize: 12),
             ),
             Text(
-              "${doctorsModel.email}",
-              style: getBoldItalicTextStyle(context: context),
+              "${doctorsModel.email}" ?? 'اسم غير معروف',
+              style: getItalicTextStyle(context: context, fontSize: 12),
             ),
           ],
         ),
@@ -138,7 +156,7 @@ class BlueContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 230.h,
+      height: 220.h,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
