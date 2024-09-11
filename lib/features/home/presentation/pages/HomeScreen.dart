@@ -1,6 +1,7 @@
 import 'package:advanced_complete_app/core/Theming/Font.dart';
 import 'package:advanced_complete_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:advanced_complete_app/features/home/presentation/cubit/home_state.dart';
+import 'package:advanced_complete_app/features/home/presentation/widgets/doctors_blocBuilder.dart';
 import 'package:advanced_complete_app/features/home/presentation/widgets/home_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,26 +63,22 @@ class HomeScreen extends StatelessWidget {
                       );
                     },
                     SpecializationSuccess: (specializationDatalist) {
-                      dynamic mySpecializationDataList =
-                          specializationDatalist ?? [];
+                      var mySpecializationDatalist = specializationDatalist;
                       return Expanded(
                         child: Column(
                           children: [
                             DoctorSpecialityHorizontalListView(
-                              specializationDataList: mySpecializationDataList,
+                              specializationDataList: mySpecializationDatalist,
                             ),
-                            SizedBox(
-                              //     // height: 10.h,
-                              height: 10.h,
-                            ),
-                            // Container(
-                            // height: 200,
-                            // child:
-                            DoctorVerticalListView(
-                              doctorsList:
-                                  mySpecializationDataList[0].doctorslist,
-                              // ),
-                            ),
+                            // SizedBox(
+                            //   //     // height: 10.h,
+                            //   height: 10.h,
+                            // ),
+                            // DoctorVerticalListView(
+                            //   doctorsList:
+                            //       mySpecializationDatalist![0]!.doctorslist,
+                            // ),
+                            DoctorsBlocbuilder(),
                           ],
                         ),
                       );

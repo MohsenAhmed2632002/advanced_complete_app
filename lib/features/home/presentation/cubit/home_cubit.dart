@@ -15,7 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
     response.when(
       success: (specializationResponseModel) {
         specializationDatalist =
-            specializationResponseModel.specializationDatalist ?? [];
+            specializationResponseModel.specializationDatalist;
         getDoctorList(specializationID: specializationDatalist.first.id);
         emit(
           HomeState.SpecializationSuccess(
@@ -23,8 +23,8 @@ class HomeCubit extends Cubit<HomeState> {
           ),
         );
         print(specializationResponseModel
-                .specializationDatalist![0]!.doctorslist![0]!.name ??
-            []);
+                .specializationDatalist[0].doctorslist![0].name 
+            );
       },
       failure: (message) {
         emit(HomeState.SpecializationFailure(message));
@@ -46,7 +46,7 @@ class HomeCubit extends Cubit<HomeState> {
     return specializationDatalist
             .firstWhere(
                 (specialization) => specialization.id == specializationID)
-            .doctorslist ??
-        [];
+            .doctorslist 
+        ;
   }
 }

@@ -1,17 +1,27 @@
 import 'package:advanced_complete_app/core/Theming/Font.dart';
 import 'package:advanced_complete_app/core/image.dart';
 import 'package:advanced_complete_app/features/home/data/models/Specialization_Response_model.dart';
+import 'package:advanced_complete_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DoctorSpecialityHorizontalListView extends StatelessWidget {
-  final List<SpecializationData> specializationDataList;
+class DoctorSpecialityHorizontalListView extends StatefulWidget {
+  final List<SpecializationData?>? specializationDataList;
   const DoctorSpecialityHorizontalListView({
     super.key,
     required this.specializationDataList,
   });
 
+  @override
+  State<DoctorSpecialityHorizontalListView> createState() =>
+      _DoctorSpecialityHorizontalListViewState();
+}
+
+class _DoctorSpecialityHorizontalListViewState
+    extends State<DoctorSpecialityHorizontalListView> {
+  int selectedSpecializationID = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,11 +36,22 @@ class DoctorSpecialityHorizontalListView extends StatelessWidget {
           );
         },
         scrollDirection: Axis.horizontal,
-        itemCount: specializationDataList.length,
+        itemCount: widget.specializationDataList!.length,
         itemBuilder: (BuildContext context, int index) {
-          return SpcecializationDataListviewItem(
-            itemIndex: index,
-            specializationData: specializationDataList[index],
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                selectedSpecializationID = index;
+              });
+              context.read<HomeCubit>().getDoctorList(
+                    specializationID: widget.specializationDataList![index]!.id,
+                  );
+            },
+            child: DoctorsListViewItem(
+              selectedIndex: selectedSpecializationID,
+              itemIndex: index,
+              specializationData: widget.specializationDataList![index],
+            ),
           );
         },
       ),
@@ -38,32 +59,42 @@ class DoctorSpecialityHorizontalListView extends StatelessWidget {
   }
 }
 
-class SpcecializationDataListviewItem extends StatelessWidget {
+class DoctorsListViewItem extends StatelessWidget {
   final int itemIndex;
-  final SpecializationData specializationData;
-  const SpcecializationDataListviewItem({
+  final SpecializationData? specializationData;
+  final int selectedIndex;
+  const DoctorsListViewItem({
     super.key,
     required this.itemIndex,
     required this.specializationData,
+    required this.selectedIndex,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            15,
-          ),
-        ),
-        border: Border.all(
-          color: Colors.blue,
-        ),
-      ),
+      decoration: itemIndex == selectedIndex
+          ? BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  15,
+                ),
+              ),
+              border: Border.all(
+                color: Colors.blue,
+              ),
+            )
+          : BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  20,
+                ),
+              ),
+            ),
       child: Center(
         child: Text(
-          "${specializationData.name}" ?? 'اسم غير معروف',
+          "${specializationData!.name}" ?? 'اسم غير معروف',
           style: getItalicTextStyle(
             context: context,
             fontSize: 15,
@@ -75,7 +106,7 @@ class SpcecializationDataListviewItem extends StatelessWidget {
 }
 
 class DoctorVerticalListView extends StatelessWidget {
-  final List<Doctors> doctorsList;
+  final List<Doctors?>? doctorsList;
   const DoctorVerticalListView({
     super.key,
     required this.doctorsList,
@@ -83,11 +114,7 @@ class DoctorVerticalListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // Container(
-        // height: 100.h,
-        // child:
-        Expanded(
+    return Expanded(
       child: ListView.separated(
         shrinkWrap: true,
         separatorBuilder: (context, index) {
@@ -95,10 +122,10 @@ class DoctorVerticalListView extends StatelessWidget {
             height: 5.h,
           );
         },
-        itemCount: doctorsList.length,
+        itemCount: doctorsList!.length,
         itemBuilder: (BuildContext context, int index) {
-          return DoctorsListViewItem(
-            doctorsModel: doctorsList[index],
+          return DoctorsListViewItemDetails(
+            doctorsModel: doctorsList![index],
           );
         },
         // ),
@@ -107,9 +134,9 @@ class DoctorVerticalListView extends StatelessWidget {
   }
 }
 
-class DoctorsListViewItem extends StatelessWidget {
-  final Doctors doctorsModel;
-  const DoctorsListViewItem({
+class DoctorsListViewItemDetails extends StatelessWidget {
+  final Doctors? doctorsModel;
+  const DoctorsListViewItemDetails({
     super.key,
     required this.doctorsModel,
   });
@@ -125,16 +152,17 @@ class DoctorsListViewItem extends StatelessWidget {
         Column(
           children: [
             Text(
-              "${doctorsModel.name}" ?? 'اسم غير معروف',
+              "${doctorsModel!.name}" ?? 'اسم غير معروف',
               style: getItalicTextStyle(context: context),
             ),
             Text(
-              "${doctorsModel.degree}|${doctorsModel.phone}" ?? 'اسم غير معروف',
+              "${doctorsModel!.degree}|${doctorsModel!.phone}" ??
+                  'اسم غير معروف',
               style: getItalicTextStyle(
                   context: context, color: Colors.grey, fontSize: 12),
             ),
             Text(
-              "${doctorsModel.email}" ?? 'اسم غير معروف',
+              "${doctorsModel!.email}" ?? 'اسم غير معروف',
               style: getItalicTextStyle(context: context, fontSize: 12),
             ),
           ],
