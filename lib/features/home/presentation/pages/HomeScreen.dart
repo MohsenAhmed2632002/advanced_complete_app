@@ -61,11 +61,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    SpecializationSuccess: (mySpecializationResponseModel) {
-                      var mySpecializationDataList =
-                          mySpecializationResponseModel
-                                  .specializationDatalist ??
-                              [];
+                    SpecializationSuccess: (specializationDatalist) {
+                      dynamic mySpecializationDataList =
+                          specializationDatalist ?? [];
                       return Expanded(
                         child: Column(
                           children: [

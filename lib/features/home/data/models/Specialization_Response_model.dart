@@ -6,7 +6,7 @@ class SpecializationResponseModel {
   @JsonKey(name: "data")
   List<SpecializationData> specializationDatalist;
   SpecializationResponseModel({
-  required  this.specializationDatalist,
+    required this.specializationDatalist,
   });
 
   factory SpecializationResponseModel.fromJson(Map<String, dynamic> json) =>

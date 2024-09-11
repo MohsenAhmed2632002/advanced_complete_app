@@ -1,4 +1,5 @@
 import 'package:advanced_complete_app/core/image.dart';
+import 'package:advanced_complete_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animate_do/animate_do.dart';
@@ -22,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
         ), () {
       return Navigator.pushReplacementNamed(
         context,
-        Routes.onBordingRoute,
+        userisLoggedin ? Routes.onBordingRoute : Routes.homeScreen,
       );
     });
   }

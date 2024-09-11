@@ -1,12 +1,26 @@
+import 'package:advanced_complete_app/core/Helper/shared_Pref_helper.dart';
 import 'package:advanced_complete_app/core/di/Dependency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/Routing/Routes.dart';
 import 'core/Theming/theme.dart';
 
+bool userisLoggedin = false;
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   setupGitDI();
+  ChekedUserisLoggedin();
   runApp(MyApp());
+}
+
+void ChekedUserisLoggedin() async {
+  String? userToken =
+      await SharedPrefHelperKeys.getUserToken(SharedPrefHelperKeys.userToken);
+  if (userToken == null || userToken.isNotEmpty) {
+    userisLoggedin = true;
+  } else {
+    userisLoggedin = false;
+  }
 }
 
 class MyApp extends StatelessWidget {
