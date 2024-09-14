@@ -9,6 +9,7 @@ class DioFactory {
   DioFactory._();
   static Dio? dio;
 
+
   static Dio getDio() {
     Duration time = const Duration(seconds: 30);
     if (dio == null) {
