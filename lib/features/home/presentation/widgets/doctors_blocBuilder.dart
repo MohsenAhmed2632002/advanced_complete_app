@@ -27,7 +27,7 @@ class DoctorsBlocbuilder extends StatelessWidget {
             },
             orElse: () {
               return SizedBox(
-                child: Text("else"),
+                child: Text("Waiting..."),
               );
             },
           );

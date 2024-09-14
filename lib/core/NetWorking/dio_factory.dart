@@ -42,14 +42,7 @@ class DioFactory {
         responseBody: true,
       ),
     );
-
-
   }
-
-
-
-
-  
 
   static void saveTokenAfterLogin(String token) async {
     dio!.options.headers = {

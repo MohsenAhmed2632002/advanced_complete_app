@@ -26,7 +26,7 @@ class _DoctorSpecialityHorizontalListViewState
   Widget build(BuildContext context) {
     return Container(
       // color: Co lors.red,
-      height: 55.h,
+      height: 70.h,
       child: ListView.separated(
         shrinkWrap: true,
         separatorBuilder: (context, index) {
@@ -72,35 +72,24 @@ class DoctorsListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(5),
-      decoration: itemIndex == selectedIndex
-          ? BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  15,
-                ),
-              ),
-              border: Border.all(
-                color: Colors.blue,
-              ),
-            )
-          : BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  20,
-                ),
-              ),
+    return Column(
+      children: [
+        // ),
+        CircleAvatar(
+          backgroundColor:
+              itemIndex == selectedIndex ? Colors.blue : Colors.grey,
+        ),
+        Container(
+          child: Text(
+            "${specializationData!.name}" ?? 'اسم غير معروف',
+            style: getItalicTextStyle(
+              context: context,
+              color: itemIndex == selectedIndex ? Colors.blue : Colors.grey,
+              fontSize: itemIndex == selectedIndex ? 15 : 13,
             ),
-      child: Center(
-        child: Text(
-          "${specializationData!.name}" ?? 'اسم غير معروف',
-          style: getItalicTextStyle(
-            context: context,
-            fontSize: 15,
           ),
         ),
-      ),
+      ],
     );
   }
 }

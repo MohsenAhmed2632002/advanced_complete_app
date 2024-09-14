@@ -42,12 +42,6 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              // Container(
-              //   height: 100.h,
-              //   child: Center(
-              //     child: CircularProgressIndicator(),
-              //   ),
-              // ),
               BlocBuilder<HomeCubit, HomeState>(
                 buildWhen: (previous, current) =>
                     current is Loading ||
@@ -64,23 +58,8 @@ class HomeScreen extends StatelessWidget {
                     },
                     SpecializationSuccess: (specializationDatalist) {
                       var mySpecializationDatalist = specializationDatalist;
-                      return Expanded(
-                        child: Column(
-                          children: [
-                            DoctorSpecialityHorizontalListView(
-                              specializationDataList: mySpecializationDatalist,
-                            ),
-                            // SizedBox(
-                            //   //     // height: 10.h,
-                            //   height: 10.h,
-                            // ),
-                            // DoctorVerticalListView(
-                            //   doctorsList:
-                            //       mySpecializationDatalist![0]!.doctorslist,
-                            // ),
-                            DoctorsBlocbuilder(),
-                          ],
-                        ),
+                      return DoctorSpecialityHorizontalListView(
+                        specializationDataList: mySpecializationDatalist,
                       );
                     },
                     SpecializationFailure: (message) {
@@ -96,6 +75,10 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
               ),
+              SizedBox(
+                height: 5.h,
+              ),
+              DoctorsBlocbuilder(),
             ],
           ),
         ),

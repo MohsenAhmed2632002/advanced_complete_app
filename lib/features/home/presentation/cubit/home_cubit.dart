@@ -22,9 +22,7 @@ class HomeCubit extends Cubit<HomeState> {
             specializationDatalist,
           ),
         );
-        print(specializationResponseModel
-                .specializationDatalist[0].doctorslist![0].name 
-            );
+
       },
       failure: (message) {
         emit(HomeState.SpecializationFailure(message));
@@ -32,7 +30,7 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  void getDoctorList({required int? specializationID}) {
+  void  getDoctorList({required int? specializationID}) {
     List<Doctors?>? doctorsList =
         FilterSpecializationListByID(specializationID);
     if (doctorsList != null && doctorsList.isNotEmpty) {
